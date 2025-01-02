@@ -81,14 +81,5 @@ for destination in sheet_data:
 
         print(f"Check your email. Lower price flight found to {destination['city']}!")
 
-        '''notification_manager.send_sms(
-            message
-        )'''
-
-        # SMS not working? Try whatsapp instead.
-        '''notification_manager.send_whatsapp(
-            message
-        )'''
-
         notification_manager.send_mail(customer_data, message)
 
