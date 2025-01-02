@@ -10,7 +10,7 @@ SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/d7be849242479fb1abd586e4afe9bfd8
 SHEETY_USERS_ENDPOINT = "https://api.sheety.co/d7be849242479fb1abd586e4afe9bfd8/flightDeals/users"
 
 header = {
-    'Authorization': 'Basic cHJhbW9kMDI6UHJhbW9kQDAy'
+    'Authorization': 'your_authorization_id'
 }
 
 class DataManager:
@@ -18,8 +18,8 @@ class DataManager:
     def __init__(self):
         # self._user = os.environ.get("SHEETY_USERNAME")
         # self._password = os.environ["SHEETY_PASSWORD"]
-        self._user = "pramod02"
-        self._password = "Pramod@02"
+        self._user = "your_user_name"
+        self._password = "your_password"
         self._authorization = HTTPBasicAuth(self._user, self._password)
         self.destination_data = {}
         self.customer_data = []
@@ -29,8 +29,6 @@ class DataManager:
         response = requests.get(url=SHEETY_PRICES_ENDPOINT, headers=header)
         data = response.json()
         self.destination_data = data["prices"]
-        # Try importing pretty print and printing the data out again using pprint() to see it formatted.
-        # pprint(data)
         return self.destination_data
 
     # In the DataManager Class make a PUT request and use the row id from sheet_data
